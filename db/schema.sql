@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS my_book;
+
+CREATE DATABASE my_book;
