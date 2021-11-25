@@ -27,14 +27,14 @@ User.init(
     },
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     // define a username column
-    username: {
+    pen_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -55,7 +55,7 @@ User.init(
       allowNull: false,
       validate: {
         // this means the password must be at least four characters long
-        len: [4]
+        len: [8]
       }
     }
   },
@@ -63,12 +63,12 @@ User.init(
     hooks: {
     // set up beforeCreate lifecycle "hook" functionality
     async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.password = await bcrypt.hash(newUserData.password, 8);
         return newUserData;
     },
     // set up beforeUpdate lifecycle "hook" functionality
   async beforeUpdate(updatedUserData) {
-    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 8);
     return updatedUserData;
   }
   },
