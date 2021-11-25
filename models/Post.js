@@ -20,7 +20,6 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          
             len: [800]
         }
     },
@@ -36,7 +35,7 @@ Post.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'post',
+          model: 'story',
           key: 'id'
         }
       }
