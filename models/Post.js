@@ -14,7 +14,6 @@ class Post extends Model {
             },
             attributes: [
                 'id',
-                'post_id',
                 'created_at',
                 [
                     sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE post.id = like.post_id)'),
