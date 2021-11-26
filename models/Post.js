@@ -57,7 +57,11 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
+<<<<<<< HEAD
         model: 'story',
+=======
+        model: 'post',
+>>>>>>> 59838b71f0551d4e2d17dbf8a74729533243ff12
         key: 'id'
       }
     }
