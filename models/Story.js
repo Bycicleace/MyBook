@@ -3,8 +3,6 @@ const sequelize = require('../config/connection');
 
 class Story extends Model {}
 
-
-
 Story.init(
     {
       id: {

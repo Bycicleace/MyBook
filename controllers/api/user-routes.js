@@ -4,7 +4,21 @@ const { User, Post, Story, Like } = require('../../models');
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
-    attributes: { exclude: ['password'] }
+    attributes: { exclude: ['password'] },
+    include: [
+      {
+        model: Story,
+        attributes: ['id', 'title']
+      },
+      {
+        model: Post,
+        attributes: ['id', 'content', 'story_id'],
+        include: {
+          model: Story,
+          attributes: ['title']
+        }
+      }
+    ]
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -20,30 +34,24 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    // include: [
-    //   {
-    //     model: Story,
-    //     attributes: ['id', 'title']
-    //   },
-    //   {
-    //     model: Post,
-    //     attributes: ['id', 'content', 'story_id'],
-    //     include: {
-    //       model: Story,
-    //       attributes: ['title']
-    //     }
-    //   },
-    //   {
-    //     model: Post,
-    //     attributes: ['title'],
-    //     through: Like,
-    //     as: 'liked_posts'
-    //   }
-    // ]
+    include: [
+      {
+        model: Story,
+        attributes: ['id', 'title']
+      },
+      {
+        model: Post,
+        attributes: ['id', 'content', 'story_id'],
+        include: {
+          model: Story,
+          attributes: ['title']
+        }
+      }
+    ]
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No user foundxc with this id' });
+      res.status(404).json({ message: 'No user found with this id' });
       return;
     }
     res.json(dbUserData);
