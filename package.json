@@ -1,34 +1,30 @@
 {
-  "name": "tech-blog",
+  "name": "mybook",
   "version": "1.0.0",
-  "description": "",
+  "description": "Collaborative Book Writing",
   "main": "server.js",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "connect-session-sequelize": "^7.1.2",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^6.0.1",
-    "express-session": "^1.17.2",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.12.0-alpha.1"
-  },
-  "devDependencies": {
-    "jest": "^27.3.1"
-  },
   "scripts": {
     "test": "jest",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bycicleace/tech-blog.git"
+    "url": "git+https://github.com/Bycicleace/MyBook.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bycicleace/tech-blog/issues"
+    "url": "https://github.com/Bycicleace/MyBook/issues"
   },
-  "homepage": "https://github.com/Bycicleace/tech-blog#readme",
-  "keywords": []
+  "homepage": "https://github.com/Bycicleace/MyBook#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-alpha.1"
+  }
 }
