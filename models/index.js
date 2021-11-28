@@ -68,8 +68,4 @@ Posts.belongsToMany(Users, {
   foreignKey: 'post_id'
 });
 
-<<<<<<< HEAD
-module.exports = { User, Story, Post, Like };
-=======
 module.exports = { Users, Stories, Posts, Likes };
->>>>>>> develop

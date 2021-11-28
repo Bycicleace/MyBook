@@ -3,13 +3,9 @@ const sequelize = require('../config/connection');
 
 class Stories extends Model {}
 
-<<<<<<< HEAD:models/Story.js
-Story.init(
-=======
 
 
 Stories.init(
->>>>>>> develop:models/Stories.js
     {
       id: {
         type: DataTypes.INTEGER,
