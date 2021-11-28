@@ -1,71 +1,75 @@
-const User = require('./User');
-const Story = require('./Story');
-const Post = require('./Post');
-const Like = require('./Like');
+const Users = require('./Users');
+const Stories = require('./Stories');
+const Posts = require('./Posts');
+const Likes = require('./Likes');
 
 
 // User has many likes
 //   Like belongs to User
-User.hasMany(Like, {
+Users.hasMany(Likes, {
   foreignKey: 'user_id'
 });
 
-Like.belongsTo(User, {
+Likes.belongsTo(Users, {
   foreignKey: 'user_id'
 });
 
 // User has many posts
 //   Post belongs to User
-User.hasMany(Post, {
+Users.hasMany(Posts, {
   foreignKey: 'user_id'
 });
 
-Post.belongsTo(User, {
+Posts.belongsTo(Users, {
   foreignKey: 'user_id'
 });
 
 // User has many stories
 //   Story belongs to User
-User.hasMany(Story, {
+Users.hasMany(Stories, {
   foreignKey: 'user_id'
 });
 
-Story.belongsTo(User, {
+Stories.belongsTo(Users, {
   foreignKey: 'user_id'
 });
 
 // Story has many posts
 //   Post belongs to Story
-Story.hasMany(Post, {
+Stories.hasMany(Posts, {
   foreignKey: 'story_id'
 });
 
-Post.belongsTo(Story, {
+Posts.belongsTo(Stories, {
   foreignKey: 'story_id'
 });
 
 // Post has many likes
 //   Like belongs to Post
-Post.hasMany(Like, {
+Posts.hasMany(Likes, {
   foreignKey: 'post_id'
 });
 
-Like.belongsTo(Post, {
+Likes.belongsTo(Posts, {
   foreignKey: 'post_id'
 });
 
 // User belongs to many Post through Like
-User.belongsToMany(Post, {
-  through: Like,
+Users.belongsToMany(Posts, {
+  through: Likes,
   as: 'liked_posts',
   foreignKey: 'user_id'
 });
 
 // Post belongs to many User through Like
-Post.belongsToMany(User, {
-  through: Like,
+Posts.belongsToMany(Users, {
+  through: Likes,
   as: 'liked_posts',
   foreignKey: 'post_id'
 });
 
+<<<<<<< HEAD
 module.exports = { User, Story, Post, Like };
+=======
+module.exports = { Users, Stories, Posts, Likes };
+>>>>>>> develop

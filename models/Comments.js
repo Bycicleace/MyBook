@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Dislike extends Model {}
+class Comments extends Model {}
 
-Dislike.init(
+Comments.init(
     {
       // define an id column
       id: {
@@ -16,10 +16,18 @@ Dislike.init(
         // turn on auto increment
         autoIncrement: true
       },
+      content: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          
+            len: [800]
+        }
+    },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
         }
       },
@@ -28,7 +36,7 @@ Dislike.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'post',
+          model: 'posts',
           key: 'id'
         }
       }
@@ -38,8 +46,14 @@ Dislike.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'dislike'
+        modelName: 'comments'
       }
     );
 
-    module.exports = Dislike;
+
+
+
+
+
+
+module.exports = Comments;
