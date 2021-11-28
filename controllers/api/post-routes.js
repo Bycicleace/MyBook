@@ -1,23 +1,23 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Like } = require('../../models');
+const { Posts, Users, Likes } = require('../../models');
 
 // get all posts on a story
 router.get('/', (req, res) => {
     // expects JSON:  { story_id: id }
-    Post.findAll({
+    Posts.findAll({
         attributes: [
             'id',
             'content',
             'story_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM `likes` WHERE post.id = like.post_id)'), 'like_count']
         ],
         where: {
             story_id: req.body.story_id
         },
         include: [
             {
-                model: User,
+                model: Users,
                 attributes: ['id', 'pen_name']
             }
         ]
@@ -36,19 +36,19 @@ router.get('/', (req, res) => {
 // get one post (this will be used more when comments are implemented)
 router.get('/:id', (req, res) => {
     // expects JSON:  { story_id: id }
-    Post.findAll({
+    Posts.findAll({
         attributes: [
             'id',
             'content',
             'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM `likes` WHERE post.id = like.post_id)'), 'like_count']
         ],
         where: {
             id: req.params.id
         },
         include: [
             {
-                model: User,
+                model: Users,
                 attributes: ['pen_name']
             }
         ]
@@ -61,7 +61,7 @@ router.get('/:id', (req, res) => {
 
 // create a post
 router.post('/', (req, res) => {
-    Post.create({
+    Posts.create({
         content: req.body.content,
         user_id: req.body.user_id,
         story_id: req.body.story_id
@@ -75,8 +75,8 @@ router.post('/', (req, res) => {
 
 // create a like at /api/posts/like
 router.put('/like', (req, res) => {
-    // custom static method created in models/Post.js
-    Post.like(req.body, { Like })
+    // custom static method created in models/Posts.js
+    Posts.like(req.body, { Likes })
         .then(updatedPostData => res.json(updatedPostData))
         .catch(err => {
             console.log(err);
