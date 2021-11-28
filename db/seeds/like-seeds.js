@@ -1,4 +1,4 @@
-const { Likes } = require('../../models');
+const Likes = require('../../models/Likes');
 
 const likeData = [
     {
@@ -55,6 +55,6 @@ const likeData = [
     }
 ];
 
-const seedLikes = () => Likes.bulkCreate(likeData);
+const seedLikes = () => Likes.bulkCreate(likeData).catch(err => {console.log(err)});
 
 module.exports = seedLikes;

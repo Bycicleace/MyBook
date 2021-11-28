@@ -1,5 +1,4 @@
-const { Users } = require('../../models');
-const bcrypt = require('bcrypt');
+const Users = require('../../models/Users');
 
 const userData = [
     {
@@ -25,6 +24,6 @@ const userData = [
     }
 ];
 
-const seedUsers = () => Users.bulkCreate(userData);
+const seedUsers = () => Users.bulkCreate(userData).catch(err => {console.log(err)});
 
 module.exports = seedUsers;
