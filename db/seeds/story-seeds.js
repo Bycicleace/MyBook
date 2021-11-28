@@ -1,4 +1,4 @@
-const { Story } = require('../../models');
+const { Stories } = require('../../models');
 
 const storyData = [
     {
@@ -23,6 +23,6 @@ const storyData = [
     }
 ];
 
-const seedStories = () => Story.bulkCreate(storyData);
+const seedStories = () => Stories.bulkCreate(storyData);
 
 module.exports = seedStories;

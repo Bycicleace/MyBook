@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class Likes extends Model {}
 
-Post.init(
+Likes.init(
     {
       // define an id column
       id: {
@@ -16,26 +16,19 @@ Post.init(
         // turn on auto increment
         autoIncrement: true
       },
-      content: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [800]
-        }
-    },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
         }
       },
     
-    story_id: {
+    post_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'story',
+          model: 'posts',
           key: 'id'
         }
       }
@@ -45,14 +38,8 @@ Post.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post'
+        modelName: 'likes'
       }
     );
 
-
-
-
-
-
-
-module.exports = Post;
+    module.exports = Likes;
