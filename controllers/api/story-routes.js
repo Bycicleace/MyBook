@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Story, Post, User } = require('../../models');
+const { Stories, Posts, Users } = require('../../models');
 
 // get all posts on a story
 router.get('/:id', (req, res) => {
@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
         },
         include: [
             {
-                model: Post,
+                model: Posts,
                 attributes: [
                     'id',
                     'content',
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
                     [sequelize.literal('(SELECT COUNT(*) FROM `like` INNER JOIN post ON post.id = `like`.post_id INNER JOIN story ON story.id = post.story_id WHERE posts.id = like.post_id)'), 'like_count']
                 ],
                 include: {
-                    model: User,
+                    model: Users,
                     attributes: ['pen_name']
                 }
             },

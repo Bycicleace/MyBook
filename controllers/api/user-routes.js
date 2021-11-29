@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { User, Post, Story, Like } = require('../../models');
+const { Users, Posts, Stories, Likes } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-  User.findAll({
+  Users.findAll({
     attributes: { exclude: ['password'] },
     include: [
       {
-        model: Story,
+        model: Stories,
         attributes: ['id', 'title']
       },
       {
-        model: Post,
+        model: Posts,
         attributes: ['id', 'content', 'story_id'],
         include: {
-          model: Story,
+          model: Stories,
           attributes: ['title']
         }
       }
@@ -29,21 +29,21 @@ router.get('/', (req, res) => {
 
 // get one user by ID
 router.get('/:id', (req, res) => {
-  User.findOne({
+  Users.findOne({
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
     include: [
       {
-        model: Story,
+        model: Stories,
         attributes: ['id', 'title']
       },
       {
-        model: Post,
+        model: Posts,
         attributes: ['id', 'content', 'story_id'],
         include: {
-          model: Story,
+          model: Stories,
           attributes: ['title']
         }
       }
@@ -64,7 +64,7 @@ router.get('/:id', (req, res) => {
 
 // creating a User
 router.post('/', (req, res) => {
-  User.create({
+  Users.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     pen_name: req.body.pen_name,
@@ -88,7 +88,7 @@ router.post('/', (req, res) => {
 
 // user login
 router.post('/login', (req, res) => {
-  User.findOne({
+  Users.findOne({
     where: {
       email: req.body.email
     }
@@ -131,7 +131,7 @@ router.post('/logout', (req, res) => {
 // update user
 router.put('/:id', (req, res) => {
   // possibly only pass req.body.email below?
-  User.update(req.body, {
+  Users.update(req.body, {
     individualHooks: true,
     where: {
       id: req.params.id
@@ -152,7 +152,7 @@ router.put('/:id', (req, res) => {
 
 // delete users
 router.delete('/:id', (req, res) => {
-  User.destroy({
+  Users.destroy({
     where: {
       id: req.params.id
     }

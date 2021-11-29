@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Story, Post, User } = require('../models');
+const { Stories, Posts, Users } = require('../models');
 
 // get all stories
 router.get('/', (req, res) => {
-    Story.findAll({
+    Stories.findAll({
         attributes: [
             'id',
             'title',
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         ],
         include: [
             {
-                model: Post,
+                model: Posts,
                 attributes: [
                     'id',
                     'content',
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
                     [sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE posts.id = like.post_id)'), 'like_count']
                 ],
                 include: {
-                    model: User,
+                    model: Users,
                     attributes: ['pen_name']
                 }
             },
