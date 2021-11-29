@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Dislike extends Model {}
+class Likes extends Model {}
 
-Dislike.init(
+Likes.init(
     {
       // define an id column
       id: {
@@ -19,7 +19,7 @@ Dislike.init(
       user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
         }
       },
@@ -28,18 +28,17 @@ Dislike.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'post',
+          model: 'posts',
           key: 'id'
         }
       }
-      
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'dislike'
+        modelName: 'likes'
       }
-    );
+);
 
-    module.exports = Dislike;
+    module.exports = Likes;
