@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'content',
             'story_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM `likes` WHERE posts.id = likes.post_id)'), 'like_count']
         ],
         where: {
             story_id: req.body.story_id
