@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'content',
             'story_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM `likes` WHERE posts.id = likes.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE posts.id = likes.post_id)'), 'like_count']
         ],
         where: {
             story_id: req.body.story_id
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
             'id',
             'content',
             'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM `like` WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE posts.id = likes.post_id)'), 'like_count']
         ],
         where: {
             id: req.params.id
@@ -75,8 +75,8 @@ router.post('/', (req, res) => {
 
 // create a like at /api/posts/like
 router.put('/like', (req, res) => {
-    // custom static method created in models/Post.js
-    Posts.like(req.body, { Like })
+    // custom static method created in models/Posts.js
+    Posts.like(req.body, { Likes })
         .then(updatedPostData => res.json(updatedPostData))
         .catch(err => {
             console.log(err);

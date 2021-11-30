@@ -62,7 +62,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
-// creating a User
+// creating a Users
 router.post('/', (req, res) => {
   Users.create({
     first_name: req.body.first_name,

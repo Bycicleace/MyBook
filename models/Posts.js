@@ -39,6 +39,7 @@ Posts.init(
           key: 'id'
         }
       }
+      
     },
     {
         sequelize,
@@ -47,11 +48,5 @@ Posts.init(
         modelName: 'posts'
       }
 );
-
-
-
-
-
-
 
 module.exports = Posts;
