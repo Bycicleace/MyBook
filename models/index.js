@@ -17,6 +17,20 @@ Posts.belongsToMany(Users, {
   foreignKey: 'post_id'
 });
 
+// User belongs to many Post through Like
+Users.belongsToMany(Posts, {
+  through: Likes,
+  as: 'liked_posts',
+  foreignKey: 'user_id'
+});
+
+// Post belongs to many User through Like
+Posts.belongsToMany(Users, {
+  through: Likes,
+  as: 'liked_posts',
+  foreignKey: 'post_id'
+});
+
 // User has many likes
 //   Like belongs to User
 Users.hasMany(Likes, {

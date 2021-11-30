@@ -32,6 +32,7 @@ Likes.init(
           key: 'id'
         }
       }
+      
     },
     {
         sequelize,
@@ -41,4 +42,4 @@ Likes.init(
       }
 );
 
-    module.exports = Likes;
+module.exports = Likes;

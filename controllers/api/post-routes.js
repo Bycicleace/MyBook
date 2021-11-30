@@ -75,8 +75,8 @@ router.post('/', (req, res) => {
 
 // create a like at /api/posts/like
 router.put('/like', (req, res) => {
-    // custom static method created in models/Post.js
-    Posts.like(req.body, { Like })
+    // custom static method created in models/Posts.js
+    Posts.like(req.body, { Likes })
         .then(updatedPostData => res.json(updatedPostData))
         .catch(err => {
             console.log(err);

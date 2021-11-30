@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Stories, Posts, Users } = require('../../models');
 
-// get all posts on a story
+// get all posts on a Stories
 router.get('/:id', (req, res) => {
     Stories.findOne({
         attributes: [
@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
     .then(dbPostData => {
         res.json(dbPostData);
         // const posts = dbPostData.map(post => post.get({ plain: true }));
-        // res.render('storypage', { posts });
+        // res.render('Storiespage', { posts });
     })
     .catch(err => {
         console.log(err);
@@ -41,14 +41,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// create a story
+// create a Stories
 router.post('/', (req, res) => {
     Stories.create({
         id: req.body.id,
         title: req.body.title,
         user_id: req.body.user_id
     })
-    .then(dbStoryData => res.json(dbStoryData))
+    .then(dbStoriesData => res.json(dbStoriesData))
     .catch(err => {
         console.log(err);
         res.status(400).json(err);
