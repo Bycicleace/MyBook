@@ -5,47 +5,47 @@ const withAuth = require('../utils/auth');
 const { post } = require('./home-routes');
 
 // get post by ID and render to edit page
-router.get('/', withAuth, (req, res) => {
-    Stories.findAll({
-        attributes: [
-            'id',
-            'title',
-            'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
-        ],
-        include: [
-            {
-                model: Posts,
-                attributes: [
-                    'id',
-                    'content',
-                    'user_id',
-                    [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE posts.id = likes.post_id)'), 'like_count']
-                ],
-                include: {
-                    model: Users,
-                    attributes: ['pen_name']
-                }
-            },
-            {
-                model: Users,
-                attributes: ['pen_name']
-            }
-        ]
-    })
-    .then(dbStoriesData => {
-        // res.json(dbStoriesData);
-        const stories = dbStoriesData.map(stories => stories.get({ plain: true }));
-        res.render('dashboard', { stories, loggedIn: true });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+// router.get('/', withAuth, (req, res) => {
+//     Stories.findAll({
+//         attributes: [
+//             'id',
+//             'title',
+//             'user_id',
+//             [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
+//         ],
+//         include: [
+//             {
+//                 model: Posts,
+//                 attributes: [
+//                     'id',
+//                     'content',
+//                     'user_id',
+//                     [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE posts.id = likes.post_id)'), 'like_count']
+//                 ],
+//                 include: {
+//                     model: Users,
+//                     attributes: ['pen_name']
+//                 }
+//             },
+//             {
+//                 model: Users,
+//                 attributes: ['pen_name']
+//             }
+//         ]
+//     })
+//     .then(dbStoriesData => {
+//         // res.json(dbStoriesData);
+//         const stories = dbStoriesData.map(stories => stories.get({ plain: true }));
+//         res.render('dashboard', { stories, loggedIn: true });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 // get all posts by user
-router.get('/posts', withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Posts.findAll({
         where: {
             user_id: req.session.user_id
@@ -58,7 +58,7 @@ router.get('/posts', withAuth, (req, res) => {
         ],
         include: [
             {
-                model: Story,
+                model: Stories,
                 attributes: [
                     'id',
                     'title',
@@ -72,6 +72,7 @@ router.get('/posts', withAuth, (req, res) => {
     })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        console.log(posts)
         res.render('dashboard', { posts, loggedIn: true });
     }) 
     .catch(err => {
