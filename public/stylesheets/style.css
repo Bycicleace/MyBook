@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body, html {
@@ -7,13 +9,21 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
+    background-image: url('/images/Wood_back.png');
+    background-repeat: repeat-y;
+}
+
+header {
+    background-color: lightgray;
 }
 
 main {
     width: 900px;
+    height: 100%;
     margin: 0 auto;
     flex: 1 100%;
     justify-content: center;
+    background-color: antiquewhite;
 }
 
 a {
