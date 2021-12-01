@@ -28,13 +28,13 @@ router.get('/:id', (req, res) => {
                     attributes: ['pen_name']
                 }
             },
+            {
+                model: Users,
+                attributes: ['pen_name']
+            }
         ]
     })
-    .then(dbPostData => {
-        res.json(dbPostData);
-        // const posts = dbPostData.map(post => post.get({ plain: true }));
-        // res.render('Storiespage', { posts });
-    })
+    .then(dbStoriesData => res.json(dbStoriesData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
