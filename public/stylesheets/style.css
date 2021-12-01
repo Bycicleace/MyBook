@@ -19,7 +19,7 @@ body, html {
 }
 
 header {
-    background-color: rgba(42, 201, 241, 0.788);
+    background-color: rgba(42, 201, 241, 0.925);
     display: flex;
     justify-content: space-between;
 }
@@ -39,15 +39,15 @@ main {
     padding: 10px;
     flex: 1 100%;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: rgb(201, 183, 159);
     color: rgb(41, 23, 23);
     display: inline-block;
     border-radius: 10px;
-    box-shadow: 8px 5px 2px rgba(196, 210, 196, 0.879);
+    box-shadow: 8px 5px 2px rgba(155, 185, 167, 0.879);
+    
 }
 
-.title-container h1 {
-    background-color: rgb(190, 213, 190);
+
     
 
 footer {
