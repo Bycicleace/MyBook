@@ -1,7 +1,5 @@
-<ol class="post-list">
-  {{#each stories as |story|}}
-  <li>
+{{#each stories as |story|}}
+  <article class="story-block">
     {{> stories-info story }}
-  </li>
-  {{/each}}
-</ol>
+  </article>
+{{/each}}

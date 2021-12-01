@@ -1,12 +1,9 @@
-<article class="story">
-  <div class="story-container">
-    <div class = "header">
-      <a>{{ title }}</a>
-      <a>{{ user.pen_name }}</a>
-    </div>
-    <div class="first-post">
-      <a>{{ user.pen_name }}</a>
-      <a>{{ posts.0.content }}</a>
-    </div>
+<div class="story-container">
+  <div class = "header">
+    <a href="/stories/{{id}}">{{ title }}</a href="">
+    <h3 class="pen-name">{{ user.pen_name }}</h3>
   </div>
-</article>
+  <div class="first-post">
+    <h4 class="post-content">{{ posts.0.content }}</h4>
+  </div>
+</div>
