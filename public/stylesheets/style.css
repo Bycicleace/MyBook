@@ -15,15 +15,31 @@ body, html {
 
 header {
     background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1 {
+    padding: 10px;
+}
+
+header nav {
+    padding: 10px;
 }
 
 main {
-    width: 900px;
+    width: 980px;
     height: 100%;
     margin: 0 auto;
+    padding: 10px;
     flex: 1 100%;
     justify-content: center;
     background-color: antiquewhite;
+}
+
+footer {
+    background-color: black;
+    color: lightgray;
 }
 
 a {
