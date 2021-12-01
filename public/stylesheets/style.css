@@ -23,9 +23,9 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    background-image: url('/images/mybook4.png');
+    background-image: url('/images/Wood_back.png');
     background-position: center;
-    background-size: cover;
+    background-repeat: repeat-y;
 }
 
 .navbar {
@@ -49,17 +49,14 @@ header nav {
 }
 
 main {
-    width: 550px;
+    width: 980px;
     height: 100%;
-    margin: 10 auto;
+    margin: 0 auto;
     padding: 10px;
     flex: 1 100%;
     justify-content: center;
     background-color: var(--primary-color);
 }
-
-
-    
 
 footer {
     background-color: black;
@@ -77,8 +74,6 @@ a {
 a:hover {
     color: var(--tertiary-color);
 }
-
-
 
 .pen-name, .post-content {
     margin: 0;
