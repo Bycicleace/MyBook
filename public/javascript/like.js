@@ -4,7 +4,7 @@ async function likeClickHandler(event) {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const response = await fetch('/api/post/like', {
+  const response = await fetch('/api/posts/like', {
     method: 'PUT',
     body: JSON.stringify({
       post_id: id
