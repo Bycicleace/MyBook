@@ -1,7 +1,7 @@
 <ol class="post-list">
-  {{#each posts}}
+  {{#each stories as |story|}}
   <li>
-    {{> post-info posts }}
+    {{> stories-info story }}
   </li>
   {{/each}}
 </ol>

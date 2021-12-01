@@ -25,12 +25,16 @@ router.get('/', (req, res) => {
                     attributes: ['pen_name']
                 }
             },
+            {
+                model: Users,
+                attributes: ['pen_name']
+            }
         ]
     })
-    .then(dbPostData => {
-        // res.json(dbPostData);
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage', { posts });
+    .then(dbStoriesData => {
+        // res.json(dbStoriesData);
+        const stories = dbStoriesData.map(stories => stories.get({ plain: true }));
+        res.render('homepage', { stories });
     })
     .catch(err => {
         console.log(err);
