@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #FAEBD7;
+    --secondary-color: #225ca3;
+    --tertiary-color: #3486eb;
+    --text-dark: #000000;
+    --text-light: #D3D3D3;
+    --background-dark: #808080;
+    --background-light: #D3D3D3;
+}
+
+html {
+    background-color: var(--background-dark);
+}
+
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url('/images/Wood_back.png');
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+.navbar {
+    background: 
+    linear-gradient(rgba(211, 211, 211, 0.7), rgba(211, 211, 211, 0.7)),
+    url('/images/mybook4.png');
+    padding: 10px;
+    text-shadow: 2px 2px 4px var(--text-dark);
+}
+
+header {
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: auto 0;
+    padding: 0px 10px 0px 10px;
+}
+
+header nav {
+    margin: auto 0;
+    padding: 0px 10px 0px 10px;
+}
+
+main {
+    width: 980px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1 100%;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+footer {
+    background-color: black;
+    color: var(--background-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: color .1s;
+    font-size: larger;
+}
+
+a:hover {
+    color: var(--tertiary-color);
+}
+
+.pen-name, .post-content {
+    margin: 0;
+}
+
+.header {
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.story-name {
+    font-style: italic;
+}
+
+.story-block {
+    margin-bottom: 50px;
+}
