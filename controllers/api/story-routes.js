@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Stories, Posts, Users } = require('../../models');
 
-// get all posts on a Stories
+// get all posts on a story
 router.get('/:id', (req, res) => {
     Stories.findOne({
         attributes: [
