@@ -13,13 +13,13 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    background-image: url('/images/Wood_back.png');
+    background-image: url('/images/mybook3.png');
     background-position: center;
-    background-repeat: repeat-y;
+    background-size: cover;
 }
 
 header {
-    background-color: lightgray;
+    background-color: rgba(236, 235, 232, .4);
     display: flex;
     justify-content: space-between;
 }
