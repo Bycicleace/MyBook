@@ -1,14 +1,13 @@
-<article class="story">
-  <div class="story-container">
+<article class="story-block">
     <div class = "header">
-      <h3>{{ title }}</h3>
-      <h3>{{ user.pen_name }}</h3>
+      <h3 class="story-name">{{ title }}</h3>
+      <h3 class="pen-name">{{ user.pen_name }}</h3>
     </div>
     <div class="posts">
       {{#each posts}}
       <div class ="post-container">
         <div class ="header">
-          {{user.pen_name}}
+          <h3 class="pen-name">{{ user.pen_name }}</h3>
         </div>
         <div class ="post-content">
           {{ this.content }}
@@ -16,5 +15,4 @@
       </div>
       {{/each}}
     </div>
-  </div>
 </article>

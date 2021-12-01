@@ -4,8 +4,18 @@
     padding: 0;
 }
 
+:root {
+    --primary-color: #FAEBD7;
+    --secondary-color: #225ca3;
+    --tertiary-color: #3486eb;
+    --text-dark: #000000;
+    --text-light: #D3D3D3;
+    --background-dark: #808080;
+    --background-light: #D3D3D3;
+}
+
 html {
-    background-color: gray;
+    background-color: var(--background-dark);
 }
 
 body, html {
@@ -18,18 +28,24 @@ body, html {
     background-repeat: repeat-y;
 }
 
+.navbar {
+    padding: 10px;
+}
+
 header {
-    background-color: lightgray;
+    background-color: var(--background-light);
     display: flex;
     justify-content: space-between;
 }
 
 header h1 {
-    padding: 10px;
+    margin: auto 0;
+    padding: 0px 10px 0px 10px;
 }
 
 header nav {
-    padding: 10px;
+    margin: auto 0;
+    padding: 0px 10px 0px 10px;
 }
 
 main {
@@ -39,24 +55,24 @@ main {
     padding: 10px;
     flex: 1 100%;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: var(--primary-color);
 }
 
 footer {
     background-color: black;
-    color: lightgray;
+    color: var(--background-light);
 }
 
 a {
     text-decoration: none;
-    color: #225ca3;
+    color: var(--secondary-color);
     font-weight: bold;
     transition: color .1s;
     font-size: larger;
 }
 
 a:hover {
-    color: #3486eb;
+    color: var(--tertiary-color);
 }
 
 .pen-name, .post-content {
@@ -68,6 +84,10 @@ a:hover {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+}
+
+.story-name {
+    font-style: italic;
 }
 
 .story-block {
