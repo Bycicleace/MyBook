@@ -1,13 +1,30 @@
+<section class="create-story">
+    <h2>Create A New Story</h2>
+    <form class="new-story">
+        <label> Title</label>
+        <textarea class="new-title"></textarea>
+        <label> First Post</label>
+        <textarea class="new-post"></textarea>
+        <button class="submit-btn">Submit</button>
+    </form>
+</section>
+
 {{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
+<section class="users-posts">
+  <h2>Your Activity</h2>
+    {{#each posts}}
+    <div class ="post-container">
+        <div class ="header">
+          <a href="/stories/{{id}}" target="_blank" class="story-title">{{ story.title }}</a>
+        </div>
+        <div class ="post-content">
+          {{ this.content }}
+        </div>
+        {{!-- <button class="edit-post-btn">Edit Post</button>
+        <button class="delete-post-btn">Delete Post</button> --}}
+    </div>
     {{/each}}
-  </ol>
 </section>
 {{/if}}
+
+{{!insert delete and edit script}}
