@@ -5,7 +5,7 @@
         <textarea class="new-title"></textarea>
         <label> First Post</label>
         <textarea class="new-post"></textarea>
-        <button class="submit-btn">Submit</button>
+        <button type="submit" class="submit-btn">Submit</button>
     </form>
 </section>
 
@@ -15,7 +15,7 @@
     {{#each posts}}
     <div class ="post-container">
         <div class ="header">
-          <a href="/stories/{{id}}" target="_blank" class="story-title">{{ story.title }}</a>
+          <a href="/stories/{{story.id}}" target="_blank" class="story-title">{{ story.title }}</a>
         </div>
         <div class ="post-content">
           {{ this.content }}
@@ -27,4 +27,5 @@
 </section>
 {{/if}}
 
+<script src="/javascript/add-story.js"></script>
 {{!insert delete and edit script}}

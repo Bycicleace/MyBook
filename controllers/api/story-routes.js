@@ -2,6 +2,24 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Stories, Posts, Users } = require('../../models');
 
+// return story just created by user
+router.get('/', (req, res) => {
+    Stories.findOne({
+        attributes: [
+            'id'
+        ],
+        where: {
+            user_id: req.session.user_id,
+            title: req.body.title
+        }
+    })
+    .then(dbStoriesData => res.json(dbStoriesData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // get all posts on a story
 router.get('/:id', (req, res) => {
     Stories.findOne({
@@ -44,11 +62,14 @@ router.get('/:id', (req, res) => {
 // create a Stories
 router.post('/', (req, res) => {
     Stories.create({
-        id: req.body.id,
         title: req.body.title,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
-    .then(dbStoriesData => res.json(dbStoriesData))
+    .then(dbStoriesData => {
+        const storyData = dbStoriesData.get({ plain: true });
+        console.log(storyData);
+        res.json(storyData);
+    })
     .catch(err => {
         console.log(err);
         res.status(400).json(err);

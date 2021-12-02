@@ -1,44 +1,44 @@
-async function newStoryFormHandler(event) {
+function newStoryFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('.new-title').value;
-  const content = document.querySelector('.new-post').value;
-  const story_id;
+  const title = document.querySelector('.new-title').value.trim();
 
-  const response = await fetch(`/api/stories`, {
+  fetch(`/api/stories`, {
     method: 'POST',
     body: JSON.stringify({
       title: title,
-      user_id: req.session.user_id
     }),
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(dbStoriesData => {
-   story_id = dbStoriesData.id;
+  })
+  .then(data => data.json())
+  .then(response => {
+    let story_id = response.id;
+    newStoryPost(story_id);
+  });
+};
+
+async function newStoryPost(story_id) {
+
+  const content = document.querySelector('.new-post').value.trim();
+
+  const response = await fetch('/api/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      content: content,
+      story_id: story_id
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
   });
 
   if (response.ok) {
-    const secondResponse = await fetch('/api/posts', { 
-      method: 'POST',
-      body: JSON.stringify({
-        content: content,
-        user_id: req.session.user_id,
-        story_id: story_id
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
+    document.location.replace('/dashboard');
   } else {
     alert(response.statusText);
   }
 }
 
-document.querySelector('.create-story').addEventListener('submit', newStoryFormHandler);
+document.querySelector('.new-story').addEventListener('submit', newStoryFormHandler);

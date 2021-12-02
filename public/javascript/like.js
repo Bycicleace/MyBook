@@ -1,3 +1,5 @@
+// FOR FUTURE DEVELOPMENT
+
 /*
 async function likeClickHandler(event) {
   event.preventDefault();
