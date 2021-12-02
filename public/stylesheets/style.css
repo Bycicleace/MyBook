@@ -148,19 +148,33 @@ a:hover {
     margin-bottom: 0px;
 }
 
-.new-post-form {
-    display: flex;
+.counter-box {
+    margin-bottom: 20px;
+}
+
+.count {
+    color: gray;
+    font-size: small;
 }
 
 .create-btn {
-    margin-right: 10px;
+    font-size: medium;
+    padding: 15px 0 15px 0;
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
     color: var(--secondary-color);
     font-weight: bold;
 }
 
+textarea {
+    width: 100%;
+}
+
 .submit-btn {
-    color: var(--secondary-color);
+    font-size: medium;
     font-weight: bold;
+    color: var(--secondary-color);
     height: 40px;
 }
 
@@ -171,10 +185,6 @@ a:hover {
 
 textarea {
     height: 50px;
-}
-
-.new-title, .new-post {
-    margin-bottom: 20px
 }
 
 label {

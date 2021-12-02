@@ -1,11 +1,17 @@
 <section class="create-story">
     <h2>Create A New Story</h2>
     <form class="new-story">
-        <label> Title</label>
+      <label> Title</label>
+      <div class="counter-box">
         <textarea class="new-title" maxlength="50"></textarea>
-        <label> First Post</label>
+        <span class="count">50/50 characters</span>
+      </div>
+      <label> First Post</label>
+      <div class="counter-box">
         <textarea class="new-post" maxlength="800"></textarea>
-        <button type="submit" class="submit-btn">Submit</button>
+        <span class="count">800/800 characters</span>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
     </form>
 </section>
 
@@ -28,4 +34,5 @@
 {{/if}}
 
 <script src="/javascript/add-story.js"></script>
+<script src="/javascript/character-counter.js"></script>
 {{!insert delete and edit script}}

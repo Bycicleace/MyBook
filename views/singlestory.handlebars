@@ -2,8 +2,12 @@
 
 {{#if loggedIn}}
 <form class="new-post-form">
-    <button type="submit" class="create-btn">Create New Post</button>
-    <textarea class="post-content" id="post-content" maxlength="800"></textarea>
+    <div class="counter-box">
+      <textarea class="post-content" id="post-content" maxlength="800"></textarea>
+      <span class="count">800/800 characters</span>
+      <br>
+      <button type="submit" class="create-btn">Create New Post</button>
+    </div>
   </div>
 </form>
 
