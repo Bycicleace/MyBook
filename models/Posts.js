@@ -17,7 +17,7 @@ Posts.init(
       autoIncrement: true
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(800),
       allowNull: false,
       validate: {
         len: [3, 800]
