@@ -1,5 +1,16 @@
+<section class="create-story">
+    <h2>Create A New Story</h2>
+    <form class="new-story">
+        <label> Title</label>
+        <textarea class="new-title"></textarea>
+        <label> First Post</label>
+        <textarea class="new-post"></textarea>
+        <button class="submit-btn">Submit</button>
+    </form>
+</section>
+
 {{#if posts.length}}
-<section>
+<section class="users-posts">
   <h2>Your Activity</h2>
     {{#each posts}}
     <div class ="post-container">
