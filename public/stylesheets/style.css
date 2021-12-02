@@ -55,10 +55,8 @@ header nav {
 main {
     width: 980px;
     height: 100%;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 20px;
-    flex: 1 100%;
-    justify-content: center;
     background-color: var(--primary-color);
 }
 
@@ -83,15 +81,26 @@ a:hover {
     margin: 0;
 }
 
+.pen-name {
+    height: fit-content;
+    font-size: medium;
+    color: rgb(131, 94, 46);
+    margin-bottom: 2.5px;
+}
+
 .header {
     margin-bottom: 5px;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .story-name {
+    font-size: x-large;
+    color: var(--secondary-color);
     font-style: italic;
+    margin-right: 10px;
 }
 
 .story-block {
