@@ -2,24 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Stories, Posts, Users } = require('../../models');
 
-// return story just created by user
-router.get('/', (req, res) => {
-    Stories.findOne({
-        attributes: [
-            'id'
-        ],
-        where: {
-            user_id: req.session.user_id,
-            title: req.body.title
-        }
-    })
-    .then(dbStoriesData => res.json(dbStoriesData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
 // get all posts on a story
 router.get('/:id', (req, res) => {
     Stories.findOne({
