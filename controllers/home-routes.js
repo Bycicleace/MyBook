@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
     .then(dbStoriesData => {
         // res.json(dbStoriesData);
         const stories = dbStoriesData.map(stories => stories.get({ plain: true }));
-        res.render('homepage', { stories });
+        res.render('homepage', { stories, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);
@@ -76,7 +76,7 @@ router.get('/stories/:id', (req, res) => {
     .then(dbStoriesData => {
         const story = dbStoriesData.get({ plain: true })
 
-        res.render('singlestory', { story })
+        res.render('singlestory', { story, loggedIn: req.session.loggedIn })
     })
     .catch(err => {
         console.log(err);
