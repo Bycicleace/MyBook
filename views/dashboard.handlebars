@@ -4,20 +4,16 @@
     {{#each posts}}
     <div class ="post-container">
         <div class ="header">
-          {{! insert story name here?}}
+          <a href="/stories/{{id}}" target="_blank" class="story-title">{{ story.title }}</a>
         </div>
         <div class ="post-content">
           {{ this.content }}
         </div>
+        {{!-- <button class="edit-post-btn">Edit Post</button>
+        <button class="delete-post-btn">Delete Post</button> --}}
     </div>
     {{/each}}
-  {{!-- <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol> --}}
 </section>
 {{/if}}
+
+{{!insert delete and edit script}}

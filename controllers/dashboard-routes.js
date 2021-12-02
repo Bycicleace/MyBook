@@ -170,7 +170,7 @@ router.get('/', withAuth, (req, res) => {
 // });
 
 // get one post and render
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit-post/:id', withAuth, (req, res) => {
     // expects JSON:  { story_id: id }
     Posts.findByPk(req.params.id, {
         attributes: [
@@ -191,8 +191,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
     })
     .then(dbPostData => {
         if (dbPostData) {
-            const posts = dbPostData.get({ plain: true });
-            res.render('edit-post', { posts, loggedIn: true });
+            const post = dbPostData.get({ plain: true });
+            res.render('edit-post', { post, loggedIn: true });
         }
         else {
             res.status(404).end();
