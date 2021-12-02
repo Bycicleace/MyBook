@@ -28,12 +28,20 @@ body, html {
     background-repeat: repeat-y;
 }
 
+main {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--primary-color);
+}
+
 .navbar {
     background: 
-    linear-gradient(rgba(211, 211, 211, 0.7), rgba(211, 211, 211, 0.7)),
+    linear-gradient(rgba(211, 211, 211, 0.85), rgba(211, 211, 211, 0.85)),
     url('/images/mybook4.png');
     padding: 10px;
-    text-shadow: 2px 2px 4px var(--text-dark);
+    margin-bottom: 30px;
 }
 
 header {
@@ -52,13 +60,6 @@ header nav {
     padding: 0px 10px 0px 10px;
 }
 
-main {
-    width: 980px;
-    height: 100%;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: var(--primary-color);
-}
 
 footer {
     background-color: black;
@@ -105,4 +106,81 @@ a:hover {
 
 .story-block {
     margin-bottom: 50px;
+}
+
+#logout-btn {
+    background: none;
+    border: none;
+    font-size: larger;
+    font-weight: bolder;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+#logout-btn:hover {
+    background: none;
+    border: none;
+    font-size: larger;
+    font-weight: bolder;
+    color: var(--tertiary-color);
+}
+
+.post-container {
+    border: 2px solid var(--text-light);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post-container h3 {
+    border-bottom: 2px solid var(--text-light)
+}
+
+#single-story-block {
+    margin-bottom: 0px;
+}
+
+.new-post-form {
+    display: flex;
+}
+
+.create-btn {
+    margin-right: 10px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.submit-btn {
+    color: var(--secondary-color);
+    font-weight: bold;
+    height: 40px;
+}
+
+.new-post-content {
+    width: 100%;
+    background-color: rgba(204, 235, 255, 0.548);
+}
+
+textarea {
+    height: 50px;
+}
+
+.new-title, .new-post {
+    margin-bottom: 20px
+}
+
+label {
+    font-weight: bold;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.create-story {
+    margin-bottom: 20px;
+}
+
+.new-story {
+    display: flex;
+    flex-direction: column;
 }
