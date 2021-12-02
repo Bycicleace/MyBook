@@ -19,7 +19,7 @@ html {
 }
 
 body, html {
-    height: 100%;
+    height: auto;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -30,10 +30,11 @@ body, html {
 
 main {
     width: 50%;
-    height: 100%;
-    margin: 0 auto;
+    height: auto;
+    margin: 30px auto;
     padding: 20px;
     background-color: var(--primary-color);
+    box-shadow: 5px 5px 5px black;
 }
 
 .navbar {
@@ -41,6 +42,8 @@ main {
     linear-gradient(rgba(211, 211, 211, 0.85), rgba(211, 211, 211, 0.85)),
     url('/images/mybook4.png');
     padding: 10px;
+    text-shadow: 2px 2px 3px black;
+    border-bottom: 4px solid black;
 }
 
 header {
@@ -81,6 +84,10 @@ a:hover {
     margin: 0;
 }
 
+.post-content {
+    width: 100%;
+}
+
 .pen-name {
     height: fit-content;
     font-size: medium;
@@ -114,6 +121,7 @@ a:hover {
     font-weight: bolder;
     color: var(--secondary-color);
     margin-left: 10px;
+    text-shadow: 2px 2px 3px black;
 }
 
 #logout-btn:hover {
@@ -122,6 +130,8 @@ a:hover {
     font-size: larger;
     font-weight: bolder;
     color: var(--tertiary-color);
+    text-shadow: 2px 2px 3px black;
+    cursor: pointer;
 }
 
 .post-container {
@@ -176,7 +186,10 @@ h2 {
 }
 
 .create-story {
+    padding: 10px;
     margin-bottom: 20px;
+    border: 2px solid var(--background-light);
+    border-radius: 3px;
 }
 
 .new-story {
