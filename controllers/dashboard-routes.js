@@ -81,96 +81,96 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// get a single story and render to edit page
-router.get('/edit/:id', (req, res) => {
-    Stories.findByPk(req.params.id, {
-        attributes: [
-            'id',
-            'title',
-            'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
-        ],
-        include: [
-            {
-                model: Posts,
-                attributes: [
-                    'id',
-                    'content',
-                    'user_id',
-                    [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.id = likes.post_id INNER JOIN stories ON stories.id = posts.story_id WHERE posts.id = likes.post_id)'), 'like_count']
-                ],
-                include: {
-                    model: Users,
-                    attributes: ['pen_name']
-                }
-            },
-            {
-                model: Users,
-                attributes: ['pen_name']
-            }
-        ]
-    })
-    .then(dbStoriesData => {
-        if (dbStoriesData) {
-            const story = dbStoriesData.get({ plain: true });
-            res.render('edit-story', { story, loggedIn: true })
-        }
-        else {
-            res.status(404).end();
-        }
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+// // get a single story and render to edit page
+// router.get('/edit/:id', (req, res) => {
+//     Stories.findByPk(req.params.id, {
+//         attributes: [
+//             'id',
+//             'title',
+//             'user_id',
+//             [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
+//         ],
+//         include: [
+//             {
+//                 model: Posts,
+//                 attributes: [
+//                     'id',
+//                     'content',
+//                     'user_id',
+//                     [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.id = likes.post_id INNER JOIN stories ON stories.id = posts.story_id WHERE posts.id = likes.post_id)'), 'like_count']
+//                 ],
+//                 include: {
+//                     model: Users,
+//                     attributes: ['pen_name']
+//                 }
+//             },
+//             {
+//                 model: Users,
+//                 attributes: ['pen_name']
+//             }
+//         ]
+//     })
+//     .then(dbStoriesData => {
+//         if (dbStoriesData) {
+//             const story = dbStoriesData.get({ plain: true });
+//             res.render('edit-story', { story, loggedIn: true })
+//         }
+//         else {
+//             res.status(404).end();
+//         }
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
-// get a single story and render to edit page
-router.get('/edit/:id', withAuth, (req, res) => {
-    Stories.findByPk(req.params.id, {
-        attributes: [
-            'id',
-            'title',
-            'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
-        ],
-        include: [
-            {
-                model: Posts,
-                attributes: [
-                    'id',
-                    'content',
-                    'user_id',
-                    [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.id = likes.post_id INNER JOIN stories ON stories.id = posts.story_id WHERE posts.id = likes.post_id)'), 'like_count']
-                ],
-                include: {
-                    model: Users,
-                    attributes: ['pen_name']
-                }
-            },
-            {
-                model: Users,
-                attributes: ['pen_name']
-            }
-        ]
-    })
-    .then(dbStoriesData => {
-        if (dbStoriesData) {
-            const story = dbStoriesData.get({ plain: true });
-            res.render('edit-story', { story, loggedIn: true })
-        }
-        else {
-            res.status(404).end();
-        }
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+// // get a single story and render to edit page
+// router.get('/edit/:id', withAuth, (req, res) => {
+//     Stories.findByPk(req.params.id, {
+//         attributes: [
+//             'id',
+//             'title',
+//             'user_id',
+//             [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.story_id = stories.id WHERE posts.id = likes.post_id)'), 'like_count']
+//         ],
+//         include: [
+//             {
+//                 model: Posts,
+//                 attributes: [
+//                     'id',
+//                     'content',
+//                     'user_id',
+//                     [sequelize.literal('(SELECT COUNT(*) FROM likes INNER JOIN posts ON posts.id = likes.post_id INNER JOIN stories ON stories.id = posts.story_id WHERE posts.id = likes.post_id)'), 'like_count']
+//                 ],
+//                 include: {
+//                     model: Users,
+//                     attributes: ['pen_name']
+//                 }
+//             },
+//             {
+//                 model: Users,
+//                 attributes: ['pen_name']
+//             }
+//         ]
+//     })
+//     .then(dbStoriesData => {
+//         if (dbStoriesData) {
+//             const story = dbStoriesData.get({ plain: true });
+//             res.render('edit-story', { story, loggedIn: true })
+//         }
+//         else {
+//             res.status(404).end();
+//         }
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 // get one post and render
-router.get('/posts/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     // expects JSON:  { story_id: id }
     Posts.findByPk(req.params.id, {
         attributes: [

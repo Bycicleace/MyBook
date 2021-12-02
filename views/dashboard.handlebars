@@ -1,13 +1,23 @@
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
-  <ol>
+  <h2>Your Activity</h2>
+    {{#each posts}}
+    <div class ="post-container">
+        <div class ="header">
+          {{! insert story name here?}}
+        </div>
+        <div class ="post-content">
+          {{ this.content }}
+        </div>
+    </div>
+    {{/each}}
+  {{!-- <ol>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
-  </ol>
+  </ol> --}}
 </section>
 {{/if}}
