@@ -3,8 +3,11 @@
 {{#if loggedIn}}
 <form class="new-post-form">
     <button type="submit" class="create-btn">Create New Post</button>
-    <textarea class="new-post-content"></textarea>
+    <textarea class="post-content" id="post-content"></textarea>
+  </div>
 </form>
+
+<script src="/javascript/add-post.js"></script>
 {{/if}}
 
 {{!-- {{#if loggedIn}}
