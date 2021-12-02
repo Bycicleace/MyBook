@@ -1,0 +1,20 @@
+{{> singlestory-info story}}
+
+{{#if loggedIn}}
+<form class="new-post-form">
+  <div>
+    <button type="submit" class="create-btn">Create New Post</button>
+    <input type="text" id="post-content" name="post-content" />
+  </div>
+</form>
+{{/if}}
+
+{{#if loggedIn}}
+  <div>
+    <button type="button" class="like-btn">like</button>
+  </div>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/javascript/like.js"></script>
+{{/if}}

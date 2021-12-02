@@ -40,6 +40,6 @@ Likes.init(
         underscored: true,
         modelName: 'likes'
       }
-    );
+);
 
-    module.exports = Likes;
+module.exports = Likes;

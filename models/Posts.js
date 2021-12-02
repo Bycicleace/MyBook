@@ -47,12 +47,6 @@ Posts.init(
         underscored: true,
         modelName: 'posts'
       }
-    );
-
-
-
-
-
-
+);
 
 module.exports = Posts;
