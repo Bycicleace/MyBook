@@ -29,6 +29,9 @@ router.get('/', (req, res) => {
                 model: Users,
                 attributes: ['pen_name']
             }
+        ],
+        order: [
+            ['id', 'DESC']
         ]
     })
     .then(dbStoriesData => {
