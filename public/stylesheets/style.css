@@ -169,6 +169,8 @@ a:hover {
 
 textarea {
     width: 100%;
+    height: 50px;
+    resize: vertical;
 }
 
 .submit-btn {
@@ -181,10 +183,6 @@ textarea {
 .new-post-content {
     width: 100%;
     background-color: rgba(204, 235, 255, 0.548);
-}
-
-textarea {
-    height: 50px;
 }
 
 label {
