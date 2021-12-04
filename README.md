@@ -16,7 +16,7 @@
 ## Description 
 MyBook is an interactive web application where users collaborate to produce a written work as a group and where all members are allowed to contribute to the content. This application follows the MVC paradigm in it's structure and uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. 
 
-![Screenshot of Application](readme.png)
+![Screenshot of Application](./public/images/readme.png)
 
 ## User Story
 ```
