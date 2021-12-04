@@ -225,8 +225,8 @@ h2 {
 #login-btn, #signup-btn {
     color: var(--secondary-color);
     font-weight: bold;
-    height: 40px;
-    width: 170px;
+    height: 30px;
+    width: 110px;
 }
 
 @media screen and (max-width: 1440px) {
